@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Domain/Domain.csproj
+/Application/ApplicationApp.csproj
+/InfraEstrutura/Infrastructure.csproj
