@@ -15,10 +15,26 @@ namespace Infrastructure.Configuration
             
         }    
         public DbSet<Products> Products { get; set; }
-
+        /// <summary>
+        /// Setando a string de conexão com a base de dados
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
+            if (!optionsBuilder.IsConfigured) 
+            {
+                //provisóriamente deixaremos a string vazia caso não haja 
+                //uma string de configuração
+                optionsBuilder.UseSqlServer(string.Empty);
+                base.OnConfiguring(optionsBuilder);
+            }
+        }
+        private string GetStringConnectionConfig()
+        {
+            //provisóriamente teremos uma string privada de conexão sem 
+            //a base de dados que ainda será criada.
+            string connectionString = string.Empty;
+            return connectionString;
         }
     }
 }
