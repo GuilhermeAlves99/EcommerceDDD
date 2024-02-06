@@ -25,7 +25,7 @@ namespace Infrastructure.Configuration
             {
                 //provisóriamente deixaremos a string vazia caso não haja 
                 //uma string de configuração
-                optionsBuilder.UseSqlServer(string.Empty);
+                optionsBuilder.UseSqlServer(GetStringConnectionConfig());
                 base.OnConfiguring(optionsBuilder);
             }
         }
